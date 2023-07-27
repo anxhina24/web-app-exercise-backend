@@ -63,7 +63,7 @@
 				<version>3.11.0</version>
 				<configuration>
 					<version>1</version>
-					<projectId>GCLOUD_CONFIG</projectId>
+					<projectId>book-management-backend</projectId>
 				</configuration>
 			</plugin>
 		</plugins>
