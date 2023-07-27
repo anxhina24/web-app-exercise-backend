@@ -26,7 +26,8 @@ public class SecurityConfig {
 
 	public static CorsConfigurationSource corsConfiguration() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-		corsConfiguration.addAllowedOriginPattern("*");
+		corsConfiguration.addAllowedOriginPattern("https://webapp-exercise-frontend.vercel.app");
+		corsConfiguration.addAllowedOrigin("http://localhost:3000");
 		corsConfiguration.applyPermitDefaultValues();
 		corsConfiguration.addAllowedMethod(HttpMethod.PUT);
 		corsConfiguration.addAllowedMethod(HttpMethod.PATCH);
