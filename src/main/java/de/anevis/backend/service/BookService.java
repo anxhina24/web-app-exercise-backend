@@ -22,6 +22,9 @@ public class BookService {
 		if(pageNo != null && pageSize != null){
 			if (filterValue != null && !filterValue.isEmpty()) {
 				pagedResult = bookRepository.findByFilterValue(filterValue, PageRequest.of(pageNo - 1, pageSize));
+				if(!pagedResult.hasContent() && pagedResult.getTotalPages() > 0){
+					pagedResult = bookRepository.findByFilterValue(filterValue, PageRequest.of(pagedResult.getTotalPages() - 1, pageSize));
+				}
 			} else {
 				pagedResult = bookRepository.findAll(PageRequest.of(pageNo - 1, pageSize));
 			}
@@ -29,7 +32,6 @@ public class BookService {
 		else{
 			pagedResult = bookRepository.findAll(Pageable.unpaged());
 		}
-
 		return pagedResult;
 	}
 

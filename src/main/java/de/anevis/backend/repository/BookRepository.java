@@ -10,6 +10,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT b FROM Book b WHERE lower(b.title) LIKE lower(concat('%', :filterValue, '%'))" +
             " OR lower(b.authorName) LIKE lower(concat('%', :filterValue, '%'))"
     )
-
     Page<Book> findByFilterValue(String filterValue, Pageable pageable);
 }
